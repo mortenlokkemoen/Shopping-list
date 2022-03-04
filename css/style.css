@@ -1,0 +1,278 @@
+:root {
+  --clr-primary: #885dc0;
+  --clr-secondary: #f1bb89;
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: var(--clr-secondary);
+}
+
+ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: 0.08rem;
+  text-transform: capitalize;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+h4 {
+  font-size: 0.8rem;
+}
+
+p {
+  margin-bottom: 1.2rem;
+}
+
+.main-title {
+  color: var(--clr-primary);
+  text-align: center;
+  margin-top: 5rem;
+}
+/*Legger på flex på hele section containern*/
+.section-container {
+  margin-top: 5rem;
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* Styler containerne til de forskjellige gruppene*/
+.left-container,
+.center-container,
+.right-container {
+  background: var(--clr-primary);
+  border-radius: 10px;
+  box-shadow: 0 0 5px 0px;
+  padding: 2rem 4rem;
+}
+
+.left-container:hover,
+.center-container:hover,
+.right-container:hover {
+  box-shadow: 0 0 8px 0px;
+}
+
+/* Alert styling*/
+.have-already-alert,
+.running-out-of-alert,
+.shopping-list-alert {
+  margin-bottom: 1rem;
+  height: 1.2rem;
+  display: grid;
+  align-items: center;
+  text-align: center;
+  font-size: 0.7rem;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+.alert-danger {
+  color: #721c24;
+  background: #f8d7da;
+}
+
+.alert-success {
+  color: #155724;
+  background: #d4edda;
+}
+
+.have-already-form,
+.running-out-of-form,
+.shopping-list-form {
+  color: var(--clr-secondary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form-control {
+  display: flex;
+  justify-content: center;
+}
+
+/*Styler input feltene*/
+#grocery,
+#outofgrocery,
+#quantity,
+#shoppingitems,
+#price {
+  padding: 0.25rem;
+  padding-left: 1rem;
+  background: #f3f3f3;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  color: var(--clr-primary);
+  font-weight: 900;
+}
+/*Styler input knappen*/
+.have-already-submit-btn,
+.running-out-of-submit-btn,
+.shopping-list-submit-btn {
+  background: var(--clr-secondary);
+  border: none;
+  align-items: center;
+  padding: 0.3rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: var(--clr-primary);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transform: scale(1);
+}
+
+.have-already-submit-btn:hover,
+.running-out-of-submit-btn:hover,
+.shopping-list-submit-btn:hover {
+  transform: scale(1.2);
+  color: #fff;
+}
+
+.have-already-list-container,
+.runningoutof-list-container,
+.shopping-list-container {
+  margin-top: 2rem;
+}
+
+/*Styler velkommen knappen*/
+.welcome-button {
+  border: none;
+  padding: 1rem;
+  margin-left: 2rem;
+  border-radius: 5px;
+  color: var(--clr-secondary);
+  background-color: var(--clr-primary);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  transform: scale(1);
+}
+
+.welcome-button:hover {
+  color: #fff;
+  background-color: var(--clr-primary);
+  transform: scale(1.1);
+}
+
+/*Vi lager dette med javascript*/
+.have-already-item,
+.out-of-item,
+.shopping-list-item {
+  color: var(--clr-secondary);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  padding: 0.8rem;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.have-already-item:hover,
+.out-of-item:hover,
+.shopping-list-item:hover {
+  color: var(--clr-primary);
+  background: var(--clr-secondary);
+}
+
+.have-already-item:hover .title {
+  color: var(--clr-primary);
+}
+
+.out-of-item:hover .title {
+  color: var(--clr-primary);
+}
+
+.shopping-list-item:hover .title {
+  color: var(--clr-primary);
+}
+
+.title,
+.price-title,
+.quantity-title,
+.totalValue-title {
+  margin-bottom: 0;
+  letter-spacing: 2px;
+}
+
+i {
+  padding: 0.275rem;
+}
+
+.edit-btn,
+.delete-btn {
+  cursor: pointer;
+  font-size: 0.7rem;
+  margin: 0 0.15rem;
+}
+.edit-btn {
+  color: #56c570;
+}
+.edit-btn:hover {
+  color: #419755;
+}
+.delete-btn {
+  color: #cf2d3e;
+}
+.delete-btn:hover {
+  color: #94202b;
+}
+.have-already-clear-btn,
+.running-out-of-clear-btn,
+.shopping-list-clear-btn {
+  text-transform: uppercase;
+  width: 10rem;
+  height: 1.5rem;
+  display: grid;
+  align-items: center;
+  background-color: var(--clr-secondary);
+  border: none;
+  color: var(--clr-primary);
+  font-weight: 700;
+  border-radius: 5px;
+  margin: 0 auto;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-top: 1.25rem;
+}
+.have-already-clear-btn:hover,
+.running-out-of-clear-btn:hover,
+.shopping-list-clear-btn:hover {
+  color: #94202b;
+}
+/* Styler totalen */
+.total-container {
+  display: flex;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--clr-secondary);
+  bottom: 0;
+}

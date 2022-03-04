@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <title>My grocery List</title>
+</head>
+<body>
+    <h1 class="main-title"> My ultimate shopping and content list</h1>
+    <button class="welcome-button" onclick="welcomeMsg()">Click for instructions</button>
+    <section class="section-container">
+        <!-- HER KOMMER TING VI HAR ALT-->
+        <!-- Her kommer form-->
+        <div class="left-container">
+        <form class="have-already-form">
+            <p class="have-already-alert"></p>
+            <h3>What I already have</h3>
+            <div class="have-already-form-container">
+                <input type ="text" id="grocery" placeholder="add any food.." />
+                <button type="submit" class="have-already-submit-btn">Submit</button>
+            </div>
+        </form>
+        <!--Her kommer listen-->
+        <div class="have-already-list-container">
+            <div class="have-already-list"></div>
+            <button class="have-already-clear-btn">clear items</button>
+            </div>
+        </div>
+
+            <!-- HER KOMMER TING VI GÅR TOM FOR-->
+        <!-- Her kommer form-->
+        <div class="center-container">
+        <form class="running-out-of-form">
+            <p class="running-out-of-alert"></p>
+            <h3>Running out of..</h3>
+            <div class="running-out-of-form-container">
+                <input type ="text" id="outofgrocery" placeholder="add any food.." />
+                <button type="submit" class="running-out-of-submit-btn">Submit</button>
+            </div>
+        </form>
+        <!--Her kommer listen-->
+        <div class="runningoutof-list-container">
+            <div class="running-out-of-list"></div>
+            <button class="running-out-of-clear-btn">clear items</button>
+        </div>
+    </div>
+
+        <!-- HER KOMMER TING VI MÅ KJØPE-->
+        <!-- Her kommer form-->
+    <div class="right-container">
+        <form class="shopping-list-form">
+            <p class="shopping-list-alert"></p>
+            <h3>Things I need to buy</h3>
+                <div class="form-container">
+                <input type ="text" id="shoppingitems" placeholder="add any food.." />
+                <input type="number" id="quantity" placeholder="qty" />
+                <input type ="number" id="price" placeholder ="price.." />
+                <button type="submit" class="shopping-list-submit-btn">Submit</button>
+                </div>
+        </form>
+        <!--Her kommer listen-->
+        <div class="shopping-list-container">
+            <div class="shopping-list"></div>
+            <button class="shopping-list-clear-btn">clear items</button>
+    </div>
+        <div class="total-container">
+        <p class="total-title">Total is:</p><p id="totalValue"></p>
+    </div>
+        </div>
+        </section>
+    <script src="/js/main.js"></script>
+</body>
+</html>
