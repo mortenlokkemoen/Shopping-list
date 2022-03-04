@@ -96,7 +96,7 @@ function clearItems() {
 
 // Whenc clicking the deletebutton removes a single list row of the item
 function deleteItem(e) {
-  const userConfirm = prompt("Do you want to delete item from the list? yes / No");
+  const userConfirm = prompt("Do you want to delete item from the list? yes / No").toLowerCase();
   if (userConfirm == "yes") {{
   listArray.splice(e,1)
   const element = e.currentTarget.parentElement.parentElement;
@@ -118,7 +118,6 @@ function editItem(e) {
   editFlag = true;
   //
   submitBtn.textContent = "edit";
-  console.log("Hei jeg fungerer også! 5");
 }
 
 // resets back to default
@@ -126,7 +125,6 @@ function backToDefaultHave() {
   grocery.value = "";
   editFlag = false;
   submitBtn.textContent = "submit";
-  console.log("Hei jeg fungerer også! 6");
 }
 // Creates the List item and appends it to list element.
 function createListItem(value) {
@@ -149,7 +147,6 @@ function createListItem(value) {
   deleteBtn.addEventListener("click", deleteItem);
   const editBtn = element.querySelector(".edit-btn");
   editBtn.addEventListener("click", editItem);
-  console.log("Hei jeg fungerer også! 7");
   // append child
   list.appendChild(element);
   backToDefaultHave();
@@ -207,7 +204,6 @@ function outOfItem(e) {
       outOfList.appendChild(outOfValueElement);
     // push to array
      outOfArray.push(outOfValue);
-      console.log("Value is: " + outOfArray);
   // display alert
     displayOutOfAlert("item added to the list", "success");
     // set back to default
@@ -247,12 +243,11 @@ function clearOutOfItems() {
 
 // Deletes just one item in the row
 function outOfDeleteItem(e) {
-  const userConfirm = prompt("Do you want to delete item from the list? yes / No");
+  const userConfirm = prompt("Do you want to delete item from the list? yes / No").toLowerCase();
   if (userConfirm == "yes") {{
     outOfArray.splice(e, 1);
     const element = e.currentTarget.parentElement.parentElement;
     outOfList.removeChild(element);
-    console.log(outOfArray);
     displayOutOfAlert("Item successfully removed", "success");
     outOfDefault();
   }
@@ -262,7 +257,7 @@ function outOfDeleteItem(e) {
 }
 // edits the item
 function outOfEditItem(e) {
-  const outOfValueElement = e.currentTarget.parentElement.parentElement;
+  outOfValueElement = e.currentTarget.parentElement.parentElement;
   // set edit item
   element = e.currentTarget.parentElement.previousElementSibling;
   // set form value
@@ -316,6 +311,7 @@ const shopClearBtn = document.querySelector(".shopping-list-clear-btn");
 const quantity = document.getElementById("quantity");
 const price = document.getElementById("price");
 
+
 //Edit options
 let shopArray = [];
 let shopEditElement;
@@ -333,11 +329,11 @@ function shopItem(e) {
   e.preventDefault();
   const shopValue = shoppingitems.value;
   const quantityValue = parseInt(quantity.value);
-  const priceValue = parseInt(price.value);
-
+    const priceValue = parseInt(price.value);
+  if (shopValue !== "" && !shopEditFlag && !quantityValue <= 0 && !priceValue <= 0) {
+    
     total = total + priceValue * quantityValue;
     document.getElementById("totalValue").innerHTML = total;
-  if (shopValue !== "" && !shopEditFlag){
     const shopEditElement = document.createElement("out-of-article");
     shopEditElement.classList.add("shopping-list-item");
     shopEditElement.innerHTML = `<p class="title">${shopValue}</p>
@@ -364,14 +360,10 @@ function shopItem(e) {
     shopArray.push(shopValue);
     displayShopAlert("item added to the list", "success");
     shoppingBackToDefault();
-  } else if (shopValue !== "" && shopEditFlag) {
-    shopListElement.innerHTML = shopValue;
-    displayShopAlert("value changed", "success");
-    shoppingBackToDefault();
   } else
     displayShopAlert("please enter a valid value!", "danger");
+    shoppingBackToDefault();
   }
-
 function displayShopAlert(text, action) {
   shopAlert.textContent = text;
   shopAlert.classList.add(`alert-${action}`);
@@ -397,7 +389,7 @@ function clearShopItems() {
 
 
 function shopDeleteItem(e) {
-  const userConfirm = prompt("Do you want to delete item from the list? yes / No");
+  const userConfirm = prompt("Do you want to delete item from the list? yes / No").toLowerCase();
   if (userConfirm == "yes") {{
     shopArray.splice(e, 1);
     const element = e.currentTarget.parentElement.parentElement;
@@ -422,7 +414,6 @@ function shopEditItem(e) {
   shopEditFlag = true;
   //
   shopSubmitBtn.textContent = "edit";
-  console.log("Funger noe her da?");
 }
 
 
@@ -430,7 +421,7 @@ function shoppingBackToDefault() {
   shoppingitems.value = "";
   shopEditFlag = false;
   shopSubmitBtn.textContent = "submit";
-  console.log("Jeg er skyld i problemet ditt");
+  document.getElementById("quantity").innerText = 1;
 }
 
 
